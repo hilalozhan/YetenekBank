@@ -1,0 +1,13 @@
+<h1>Keşfet</h1>
+<div style="display:flex; flex-wrap:wrap; gap:20px;">
+  {% for u in users %}
+    <div style="border:1px solid #ddd; border-radius:10px; padding:15px; width:200px;">
+      <h3>{{ u.username }}</h3>
+      <p>Email: {{ u.email }}</p>
+      {% if u.profile and u.profile.skills %}
+        <p><strong>Yetenekler:</strong> {{ u.profile.skills }}</p>
+      {% endif %}
+      <a href="{% url 'user_profile' u.username %}">Profili Gör</a>
+    </div>
+  {% endfor %}
+</div>
