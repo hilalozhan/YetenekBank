@@ -1,0 +1,61 @@
+Klasör Yapısı:
+
+┣ manage.py                 # Django yönetim dosyası
+ ┣ socialsite/               # Proje ayarları (settings, urls)
+ ┃ ┣ __init__.py
+ ┃ ┣ asgi.py
+ ┃ ┣ settings.py
+ ┃ ┣ urls.py
+ ┃ ┣ wsgi.py
+ ┣ users/                    # Kullanıcı işlemleri (register, login, profile)
+ ┃ ┣ __init__.py
+ ┃ ┣ admin.py
+ ┃ ┣ apps.py
+ ┃ ┣ forms.py
+ ┃ ┣ models.py
+ ┃ ┣ urls.py
+ ┃ ┣ views.py
+ ┃ ┣ migrations/
+ ┣ posts/                    # Paylaşımlar (main sayfa içerikleri)
+ ┃ ┣ __init__.py
+ ┃ ┣ admin.py
+ ┃ ┣ apps.py
+ ┃ ┣ models.py
+ ┃ ┣ urls.py
+ ┃ ┣ views.py
+ ┃ ┣ migrations/
+ ┣ templates/ 
+ ┃ ┣users/
+ ┃ ┣ ┗explore_profiles.html
+ ┃ ┣ ┗user_profile.html
+                              # HTML şablonları
+ ┃ ┣ base.html               # Ortak tasarım (navbar, css, js bağlama)
+ ┃ ┣ home.html               # Ana giriş sayfası
+ ┃ ┣ register.html           # Kullanıcı kayıt formu
+ ┃ ┣ login.html              # Kullanıcı giriş formu
+ ┃ ┣ profile_edit.html       # Kullanıcı kendi profilini düzenler
+ ┃ ┣ profile.html            # Kullanıcı profilini görüntüler
+ ┃ ┣ main.html               # Diğer kullanıcıları/payloadları listeler
+ ┣ static/                   # CSS, JS, resimler
+ ┃ ┣ css/
+ ┃ ┃ ┗ style.css
+ ┃ ┣ js/
+ ┃ ┃ ┗ script.js
+ ┃ ┣ images/
+ ┃ ┃ ┗ logo.png
+
+
+//////////////////////////////////////////////////////////////
+
+Startapp komutu nasıl çalışır ve hangi dosyaları elle eklemelisin : 
+
+startapp users komutu → otomatik klasör yapısı + migrations/ klasörü açılır.
+
+forms.py ve urls.py → manuel olarak sen eklersin.
+
+migrations/ içindeki dosyalar → makemigrations çalıştırınca Django oluşturur.
+
+
+/////////////////////////////////////////////////////////////////
+
+

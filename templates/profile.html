@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profilim</title>
+    <style>
+        body { font-family: Arial; background: #f0f4f8; display:flex; justify-content:center; align-items:center; height:100vh; margin:0; }
+        .container { background:white; padding:30px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.2); width:400px; text-align:center; }
+        img { width:120px; height:120px; border-radius:50%; object-fit:cover; margin-bottom:15px; }
+        h2 { margin-bottom:10px; }
+        p { margin:5px 0; }
+        a { display:inline-block; margin-top:15px; padding:10px 20px; background:#4facfe; color:white; border-radius:5px; text-decoration:none; }
+        a:hover { background:#0077b6; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="{% static 'images/default.jpg' %}" alt="Profil Resmi">
+        <h2>{{ user.username }}</h2>
+        <p>Email: {{ user.email }}</p>
+        <p>Hakkında: {{ user.profile.bio }}</p>
+        <p>Yetenekler: {{ user.profile.skills }}</p>
+        <a href="{% url 'explore_profiles' %}">Diğer kullanıcıları keşfet</a>
+        <a href="{% url 'profile_update' %}">Profili Düzenle</a>
+    </div>
+</body>
+</html>

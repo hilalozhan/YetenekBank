@@ -1,0 +1,60 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YetenekBank - Hoşgeldiniz</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+            width: 350px;
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        p {
+            color: #555;
+            margin-bottom: 30px;
+        }
+        a.button {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 25px;
+            text-decoration: none;
+            color: white;
+            background: #4facfe;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        a.button:hover {
+            background: #0077b6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>YetenekBank’a Hoşgeldiniz</h1>
+        <p>Yeteneklerini paylaş, yeni beceriler kazan, topluluğa katıl.</p>
+        <a href="{% url 'login' %}" class="button">Giriş Yap</a>
+        <a href="{% url 'register' %}" class="button">Kayıt Ol</a>
+    </div>
+</body>
+</html>

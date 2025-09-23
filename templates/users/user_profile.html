@@ -1,0 +1,8 @@
+<h1>{{ profile_user.username }}'in Profili</h1>
+<p>Email: {{ profile_user.email }}</p>
+
+{% if profile_user.profile and profile_user.profile.skills %}
+  <p><strong>Yetenekler:</strong> {{ profile_user.profile.skills }}</p>
+{% endif %}
+
+<button>Yetenek Değiş Tokuşu Öner</button>

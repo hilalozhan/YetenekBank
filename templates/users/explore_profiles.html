@@ -1,0 +1,142 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kullanıcıları Keşfet</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f2ef;
+      display: flex;
+    }
+
+    /* Sol panel */
+    .sidebar {
+      width: 280px;
+      background: white;
+      padding: 20px;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+      height: 100vh;
+    }
+    .sidebar img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+    .sidebar h2 {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    .sidebar p {
+      font-size: 14px;
+      color: #666;
+      margin: 5px 0;
+    }
+    .filters {
+      margin-top: 20px;
+    }
+    .filters h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    .filters input, .filters select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    /* Sağ panel */
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+    .profile-card {
+      background: white;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+    }
+    .profile-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 15px;
+    }
+    .profile-info {
+      flex: 1;
+    }
+    .profile-info h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+    .profile-info p {
+      margin: 3px 0;
+      color: #555;
+    }
+    .profile-info strong {
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Sol panel -->
+  <div class="sidebar">
+    <img src="{% static 'images/default.jpg' %}" alt="Profil Resmi">
+    <h2>{{ user.username }}</h2>
+    <p>{{ user.email }}</p>
+    <p>{{ user.profile.bio }}</p>
+    <p><strong>Yetenekler:</strong> {{ user.profile.skills }}</p>
+
+    <div class="filters">
+      <h3>Filtreler</h3>
+      <input type="text" placeholder="Kullanıcı ara...">
+      <select>
+        <option value="">Kategori seç</option>
+        <option>Yazılım</option>
+        <option>Tasarım</option>
+        <option>Müzik</option>
+      </select>
+      <select>
+        <option value="">Takas edilecek yetenek</option>
+        <option>Python</option>
+        <option>Photoshop</option>
+        <option>Gitar</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Sağ panel -->
+  <div class="main-content">
+    <h1>Diğer Kullanıcılar</h1>
+    {% for u in users %}
+    <div class="profile-card"> 
+      <img src="{% static 'images/default.jpg' %}" alt="Profil Resmi">
+      <div class="profile-info">
+        <h3>{{ u.username }}</h3>
+        <p><strong>Email:</strong> {{ u.email }}</p>
+        <p><strong>Hakkında:</strong> {{ u.profile.bio }}</p>
+        <p><strong>Yetenekler:</strong> {{ u.profile.skills }}</p>
+        <a href="{% url 'user_profile' u.username %}">Profili Gör</a>
+      </div>
+    </div>
+    {% empty %}
+    <p>Henüz başka kullanıcı yok.</p>
+    {% endfor %}
+  </div>
+
+</body>
+</html>

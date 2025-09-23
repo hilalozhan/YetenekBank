@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Profil Düzenle</title>
+    <style>
+        /* Senin CSS kodların buraya gelebilir */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Profilini Düzenle</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Kaydet</button>
+        </form>
+        <a href="{% url 'profile' %}">Geri Dön</a>
+    </div>
+</body>
+</html>
